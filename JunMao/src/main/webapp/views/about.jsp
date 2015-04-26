@@ -34,68 +34,21 @@ body,td,th {
 			<img src="../resources/source/images/about_pic.jpg" alt=""  class="img-responsive"/>
 		</div>
 		<div class="col-md-7">
-		     <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
-		     <p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry., Lorem Ipsum  dummy text ever since dummy text of the printing and usings 1500s,Duis aute irure dolor in reprehenderit in voluptate velit esse when an,Lorem Ipsum has been the industry's standard dummy text ever since dummy text of the printing and usings 1500s, </p>
-		     <p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-			<div class="read_more">
-				<a href="single-page.html"><button class="btn_style">view more</button></a>
-			</div>
+		     <h4>公司介绍</h4>
+		     <p class="para">本公司成立2013年，是一家专业钣金生产厂家，主要生产：五金冲压件、小五金制品、钣金机箱、钣金机柜、线架线梯、五金模具等产品，加工设备齐全，有剪板机、数控折弯机、数控冲床、普通冲床等钣金制造设备、五金模具加工设备，可以为客户提供设计、生产、喷涂、丝印等服务，产品主要销往国内外市场。</p>
+		     
 		</div>
 		<div class="clearfix"></div>
 		<div class="about_p">
-		 	<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry., Lorem Ipsum  dummy text ever since dummy text of the printing and usings 1500s,Duis aute irure dolor in reprehenderit in voluptate velit esse when an,Lorem Ipsum has been the industry's standard dummy text ever since dummy text of the printing and usings 1500s, </p>
-			<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since dummy text of the printing and usings 1500s,Duis aute irure dolor in reprehenderit in voluptate velit Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since dummy text of the printing and usings 1500s,Duis aute irure dolor in reprehenderit in voluptate velit</p>
-			<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+			<h4>加工范围：</h4>
+		 	<p class="para">专业制作通讯网络、环保电力、工控系统、监控系统、银行、交通，医疗等领域的电力配套的机箱、机柜。并可按客户要求，设计制造各种操作台、电池柜、屏幕墙及标准非标准机箱。我们将以客户为中心，最好的品质、最快的交货期、最优惠的价格为您服务；</p>
+			<h4>经营理念：</h4>
+			<p class="para">产品品质是公司生存与发展先决条件之一，亦是企业形象最佳代言人。本公司秉着“精益求精、开拓创新、诚信敬业报效祖国”的理念来经营。完善产品品质（包括产品、生产作业、项目实施、管理和服务等），以满足客户要求和提升客户的满意度；</p>
 		</div>
 	</div><!-- end about -->
 </div>
 </div>
-<div class="footer_bg"><!-- start footre -->
-	<div class="container">
-		<div class="row  footer">
-			<div class="col-md-3 span1_of_4">
-				<h4>about us</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry .....</p>
-				<h5>Address</h5>
-				<p class="top">500 Lorem Ipsum Dolor Sit,</p>
-				<p>22-56-2-9 Sit Amet,</p>
-				<p>USA</p>
-				<p>Phone:(00) 222 666 444</p>
-				<p>Fax: (000) 000 00 00 0</p>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>latest posts</h4>
-				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
-				<p>25 april 2013</p>
-				<span><a href="#">Pellentesque bibendum ante </a></span>
-				<p>15 march 2013</p>
-				<span><a href="#">Maecenas quis ipsum sed magna </a></span>
-				<p>25 april 2013</p>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>latest comments</h4>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-				<span><a href="#">There are many variations of passages of Lorem Ipsum available words.</a></span>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>photostream</h4>
-				<ul class="f_nav list-unstyled">
-					<li><a href="#"><img src="../resources/source/images/f_pic1.jpg" alt="" class="img-responsive"/></a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic3.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic4.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic5.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic7.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic1.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic6.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic8.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic2.jpg" alt="" class="img-responsive"/> </a></li>
-				</ul>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
+
 <%@include file="comm/foot.jsp" %>
 
 </body>

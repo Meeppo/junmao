@@ -3,6 +3,7 @@ package jin.service.base;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import jin.base.hibernate.dao.IBaseDao;
 
@@ -24,10 +25,10 @@ public class BaseService<FK extends Serializable,T,DAO extends IBaseDao<FK,T>> i
 	}
 
 	@Override
-	public void deleteLogic(FK id) {
+	public void deleteLogic(FK id) throws Exception {
 		T t = dao.load(id);
 		try {
-			Method setFlagMethod = dao.getClz().getMethod("setDeleteflag", Character.class);
+			Method setFlagMethod = dao.getEntityClz().getMethod("setDeleteflag", Character.class);
 			setFlagMethod.invoke(t, '1');
 			dao.update(t);
 		} catch (NoSuchMethodException e) {
@@ -48,8 +49,21 @@ public class BaseService<FK extends Serializable,T,DAO extends IBaseDao<FK,T>> i
 		dao.delete(id);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public T selectById(FK id) {
+		
+		String hql = "from " + dao.getEntityClz().getSimpleName() + " where id = ? and deleteflag = '0'";
+		return (T) dao.queryObject(hql, id);
+	}
 
-	
+	@Override
+	public List<T> selectList() {
+		String hql = "from " + dao.getEntityClz().getSimpleName() + " where  deleteflag = '0'";
+		return dao.list(hql);
+	}
+
+
 
 	
 	

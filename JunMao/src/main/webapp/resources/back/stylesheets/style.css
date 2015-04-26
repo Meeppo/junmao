@@ -1,0 +1,8 @@
+
+.error-box{
+	display:none;
+	border-color: #FF8080;
+}
+.error{
+	color:#a94442;
+}

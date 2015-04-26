@@ -14,7 +14,7 @@
 	<mvc:annotation-driven  enable-matrix-variables="true">
 	<mvc:message-converters>
       <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
-	   
+	    <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
 	    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 	        <property name="supportedMediaTypes">
 	            <list>

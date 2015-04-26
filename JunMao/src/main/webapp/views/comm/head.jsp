@@ -13,12 +13,12 @@
 		    <div class="nav-content">
 		      <ul class="menu nav navbar-nav navbar-left ">
 		        <li class="${index? 'active':''}"><a href="${root}/nav/index">首页</a></li>
-		        <li class="${current_page eq '产品介绍'?'active':''}"><a href="${root }/nav/products">产品介绍</a></li>
+		        <li class="${current_page eq '产品介绍'?'active':''}"><a href="${root }/nav/products?isTop=0">产品介绍</a></li>
 		        <li class="${current_page eq '关于我们'?'active':''}"><a href="${root }/nav/about">关于我们</a></li>
 		        <li class="${current_page eq '联系我们'?'active':''}"><a href="${root }/nav/concat">联系我们</a></li>
 		      </ul>
 
-             <form class="navbar-form navbar-right" role="search">
+         <!--     <form class="navbar-form navbar-right" role="search">
 		      
                 	<div class="input-group my_search">
                     	<input type="text" class="form-control" placeholder="Search">
@@ -29,7 +29,7 @@
                     	</span>
                     </div>
                 
-		      </form>
+		      </form> -->
             </div>
 		 
 		</nav>

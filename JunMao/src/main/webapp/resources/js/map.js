@@ -37,7 +37,7 @@
     }
     
     //标注点数组
-    var markerArr = [{title:"俊冒钣金",content:"国内领先水平，方巷镇龙头企业。",point:"119.391259|32.517462",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+    var markerArr = [{title:"骏茂钣金",content:"国内领先水平，方巷镇龙头企业。",point:"119.391259|32.517462",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
 		 ];
     //创建marker
     function addMarker(){

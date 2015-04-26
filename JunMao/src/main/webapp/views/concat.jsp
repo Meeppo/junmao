@@ -53,12 +53,11 @@ body,td,th {
       				<div class="company_ad">
 				     	<h2>地址 :</h2>
       				<address>
-						 <p>江苏省扬州市,</p>
-						 <p>邗江区方巷镇,</p>
+						 <p>${sysinfo.address }</p>
 						 <p>中国</p>
-				   		<p>电话:0514-00000004</p>
-				   		<p>传真: (000) 000 00 00 0</p>
-				 	 	<p>邮箱: <a href="mailto:zuiba.qq.com">zuiba.qq.com</a></p>
+				   		<p>电话:${sysinfo.phone }</p>
+				   		<p>传真: ${sysinfo.fax }</p>
+				 	 	<p>邮箱: <a href="mailto:${sysinfo.email }">${sysinfo.email }</a></p>
 				   	</address>
 				   </div>
 				</div>				
@@ -138,52 +137,6 @@ body,td,th {
   				<div class="clearfix"></div>		
 		  </div> <!-- end contact -->
 </div>
-</div>
-<div class="footer_bg"><!-- start footre -->
-	<div class="container">
-		<div class="row  footer">
-			<div class="col-md-3 span1_of_4">
-				<h4>about us</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry .....</p>
-				<h5>Address</h5>
-				<p class="top">500 Lorem Ipsum Dolor Sit,</p>
-				<p>22-56-2-9 Sit Amet,</p>
-				<p>USA</p>
-				<p>Phone:(00) 222 666 444</p>
-				<p>Fax: (000) 000 00 00 0</p>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>latest posts</h4>
-				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
-				<p>25 april 2013</p>
-				<span><a href="#">Pellentesque bibendum ante </a></span>
-				<p>15 march 2013</p>
-				<span><a href="#">Maecenas quis ipsum sed magna </a></span>
-				<p>25 april 2013</p>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>latest comments</h4>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-				<span><a href="#">There are many variations of passages of Lorem Ipsum available words.</a></span>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>photostream</h4>
-				<ul class="f_nav list-unstyled">
-					<li><a href="#"><img src="../resources/source/images/f_pic1.jpg" alt="" class="img-responsive"/></a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic3.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic4.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic5.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic7.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic1.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic6.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic8.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="../resources/source/images/f_pic2.jpg" alt="" class="img-responsive"/> </a></li>
-				</ul>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
 </div>
 <%@include file="comm/foot.jsp" %>
 

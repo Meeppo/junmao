@@ -2,21 +2,29 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
 	<!-- Maps '/' requests to the 'home' view -->
 	<mvc:view-controller path="/" view-name="home"/>
 	
 	<context:component-scan base-package="jin.controller" />
-	
+	<context:property-placeholder location="classpath:context.properties" ignore-unresolvable="true"/>
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="**/pager/**"/>
+			<mvc:mapping path="/**/pager/**"/>
 			<bean class="jin.base.interceptor.PagingInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/back/**"/>
+			<mvc:exclude-mapping path="/sign/back/in"/>
+			<mvc:exclude-mapping path="/resources/**"/>
+			<bean class="jin.base.interceptor.AuthInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

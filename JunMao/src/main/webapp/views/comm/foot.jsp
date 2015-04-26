@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row  footer1">
 			<div class="col-md-12 copy">
-				<p class="link text-center"><span>地址：江苏省扬州市方巷镇|电话：0514-12345678910|邮箱：zuiba@qq.com</span></p>
+				<p class="link text-center"><span>地址：${sysinfo.address }|电话：${sysinfo.phone }|邮箱：${sysinfo.email }</span></p>
 			</div>
 		</div>
 	</div>

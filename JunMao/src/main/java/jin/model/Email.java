@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.DynamicInsert;
 
 
-@Entity(name="email")
+@Entity(name="Email")
 @DynamicInsert
 public class Email {
 	
@@ -48,7 +48,7 @@ public class Email {
 	
 	private Date createddate;
 	private Long createdby;
-	private Date updatedate;
+	private Date updateddate;
 	private Long updatedby;
 	private Character deleteflag;
 	
@@ -119,13 +119,13 @@ public class Email {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updatedate", length = 19)
-	public Date getUpdatedate() {
-		return this.updatedate;
+	@Column(name = "updateddate", length = 19)
+	public Date getUpdateddate() {
+		return this.updateddate;
 	}
 
-	public void setUpdatedate(Date updatedate) {
-		this.updatedate = updatedate;
+	public void setUpdateddate(Date updatedate) {
+		this.updateddate = updatedate;
 	}
 
 	@Column(name = "updatedby")

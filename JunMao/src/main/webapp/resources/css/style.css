@@ -127,6 +127,7 @@ body {
 /* grids_of_3 */
 .main{
 	background: #fffffff;
+	min-height:600px;
 }
 .grids_of_3 {
 	text-align: center;

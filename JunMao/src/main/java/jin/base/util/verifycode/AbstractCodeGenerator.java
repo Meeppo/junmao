@@ -10,8 +10,8 @@ public class AbstractCodeGenerator implements CodeGenerator {
 
 	public  VerifyCode generate() throws Exception {
         // 在内存中创建图象
-        int width = 60; // 图像的宽度
-        int height = 20; // 图像的高度
+        int width = 85; // 图像的宽度
+        int height = 34; // 图像的高度
         BufferedImage image = new BufferedImage(width, height,
                 BufferedImage.TYPE_INT_RGB);
  
@@ -22,10 +22,10 @@ public class AbstractCodeGenerator implements CodeGenerator {
         g.setColor(new Color(0xDCDCDC));
         g.fillRect(0, 0, width, height);
  
-        // 画边框
+      /*  // 画边框
         g.setColor(Color.black);
         g.drawRect(0, 0, width - 1, height - 1);
- 
+ */
         // 取随机产生的认证码(4位数字)
         Random random = new Random();
         // 生成0－9999的随机数
@@ -49,18 +49,18 @@ public class AbstractCodeGenerator implements CodeGenerator {
         g.setColor(Color.black);
         g.setFont(new Font("Atlantic Inline", Font.PLAIN, 18));
         String Str = randStr.substring(0, 1);
-        g.drawString(Str, 8, 17);
+        g.drawString(Str, 18, 22);
  
         Str = randStr.substring(1, 2);
-        g.drawString(Str, 20, 15);
+        g.drawString(Str, 29, 20);
         Str = randStr.substring(2, 3);
-        g.drawString(Str, 35, 18);
+        g.drawString(Str, 43, 24);
  
         Str = randStr.substring(3, 4);
-        g.drawString(Str, 45, 15);
+        g.drawString(Str, 55, 23);
  
         // 随机产生88个干扰点，使图象中的认证码不易被其它程序探测到
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 30; i++) {
             int x = random.nextInt(width);
             int y = random.nextInt(height);
             g.drawOval(x, y, random.nextInt(5), random.nextInt(5));

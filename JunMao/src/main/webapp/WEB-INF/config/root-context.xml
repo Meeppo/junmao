@@ -13,5 +13,5 @@
 	<context:property-placeholder location="classpath:context.properties" ignore-unresolvable="true"/>
 	<import resource="mail/mail-beans.xml"/>
 	
-	<!-- <import resource="database/hibernate-context.xml"/> -->
+	<import resource="database/hibernate-context.xml"/> 
 </beans>

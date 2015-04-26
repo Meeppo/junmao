@@ -111,11 +111,21 @@
 			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
-
+	
+	<bean class="jin.base.interceptor.OperationManager" id="operationManager"/>
 	<aop:config>
 		<aop:pointcut id="interceptorPointCuts" expression="execution(* jin.service..*.*(..))" />
 		<!-- 通过advisor来确定具体要加入事务控制的方法 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
+		
+		<aop:aspect id="operationAspect" ref="operationManager">
+			<aop:pointcut expression="execution(* jin.base.hibernate.dao.IBaseDao.add(..))||execution(* jin.base.hibernate.dao.IBaseDao.update*(..))" id="opCut"/>
+			<aop:before method="before" pointcut-ref="opCut"/>
+		</aop:aspect>
 	</aop:config>
 
+
+
+
+		
 </beans>  

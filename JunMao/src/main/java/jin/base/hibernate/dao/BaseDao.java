@@ -35,13 +35,21 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 	 */
 	private Class<?> clz;
 	
-	public Class<?> getClz() {
+	protected Class<?> getClz(int index){
 		if(clz==null) {
 			//获取泛型的Class对象
 			clz = ((Class<?>)
-					(((ParameterizedType)(this.getClass().getGenericSuperclass())).getActualTypeArguments()[0]));
+					(((ParameterizedType)(this.getClass().getGenericSuperclass())).getActualTypeArguments()[index]));
 		}
 		return clz;
+	}
+	
+	public Class<?> getFKClz() {
+		return getClz(0);
+	}
+
+	public Class<?> getEntityClz() {
+		return getClz(1);
 	}
 
 	public SessionFactory getSessionFactory() {
@@ -67,7 +75,7 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 	
 	@Override
 	public T get(FK id) {
-		return (T) getSession().get(getClz(), id);
+		return (T) getSession().get(getEntityClz(), id);
 	}
 
 	@Override
@@ -85,28 +93,30 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 	@Override
 	public T load(FK id) {
 		try {
-			return (T)getSession().load(getClz(), id);
+			return (T)getSession().load(getEntityClz(), id);
 		} catch (ObjectNotFoundException e) {
 			return null;
 		}
 		
 	}
 
-	
-	public List<T> list(String hql, Object[] args) {
-		return this.list(hql, args, null);
-	}
-
-
-	public List<T> list(String hql, Object arg) {
-		return this.list(hql, new Object[]{arg});
-	}
-
-
-	public List<T> list(String hql) {
-		return this.list(hql,null);
+	public Object queryObject(String hql, Object... args) {
+		return this.queryObject(hql, args,null);
 	}
 	
+	public Object queryObject(String hql, Object[] args,
+			Map<String, Object> alias) {
+		Query query = getSession().createQuery(hql);
+		setAliasParameter(query, alias);
+		setParameter(query, args);
+		return query.uniqueResult();
+	}
+
+	public Object queryObjectByAlias(String hql, Map<String, Object> alias) {
+		return this.queryObject(hql,null,alias);
+	}
+	
+
 	private String initSort(String hql) {
 		String order = SystemContext.getOrder();
 		String sort = SystemContext.getSort();
@@ -142,6 +152,10 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 			}
 		}
 	}
+	
+	public List<T> list(String hql, Object... args) {
+		return this.list(hql, args, null);
+	}
 
 
 	public List<T> list(String hql, Object[] args, Map<String, Object> alias) {
@@ -158,19 +172,7 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 	}
 
 
-	public Pager<T> find(String hql, Object[] args) {
-		return this.find(hql, args, null);
-	}
 
-
-	public Pager<T> find(String hql, Object arg) {
-		return this.find(hql, new Object[]{arg});
-	}
-
-
-	public Pager<T> find(String hql) {
-		return this.find(hql,null);
-	}
 	
 	@SuppressWarnings("rawtypes")
 	private void setPagers(Query query,Pager pages) {
@@ -189,6 +191,10 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 		if(isHql)
 			c.replaceAll("fetch", "");
 		return c;
+	}
+
+	public Pager<T> find(String hql, Object... args) {
+		return this.find(hql, args, null);
 	}
 
 
@@ -218,53 +224,25 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 	}
 
 
-	public Object queryObject(String hql, Object[] args) {
-		return this.queryObject(hql, args,null);
-	}
 
 
-	public Object queryObject(String hql, Object arg) {
-		return this.queryObject(hql, new Object[]{arg});
-	}
 
 
-	public Object queryObject(String hql) {
-		return this.queryObject(hql,null);
-	}
-
-
-	public void updateByHql(String hql, Object[] args) {
+	public void updateByHql(String hql, Object... args) {
 		Query query = getSession().createQuery(hql);
 		setParameter(query, args);
 		query.executeUpdate();
 	}
 
-
-	public void updateByHql(String hql, Object arg) {
-		this.updateByHql(hql,new Object[]{arg});
-	}
+	
 
 
-	public void updateByHql(String hql) {
-		this.updateByHql(hql,null);
-	}
 
-
-	public <N extends Object>List<N> listBySql(String sql, Object[] args, Class<?> clz,
-			boolean hasEntity) {
+	public <N extends Object>List<N> listBySql(String sql, Class<?> clz,boolean hasEntity, Object... args) {
 		return this.listBySql(sql, args, null, clz, hasEntity);
 	}
 
 
-	public <N extends Object>List<N> listBySql(String sql, Object arg, Class<?> clz,
-			boolean hasEntity) {
-		return this.listBySql(sql, new Object[]{arg}, clz, hasEntity);
-	}
-
-
-	public <N extends Object>List<N> listBySql(String sql, Class<?> clz, boolean hasEntity) {
-		return this.listBySql(sql, null, clz, hasEntity);
-	}
 
 
 	public <N extends Object>List<N> listBySql(String sql, Object[] args,
@@ -287,25 +265,13 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 	}
 
 
-	public <N extends Object>Pager<N> findBySql(String sql, Object[] args, Class<?> clz,
-			boolean hasEntity) {
+	public <N extends Object>Pager<N> findBySql(String sql, Class<?> clz,boolean hasEntity , Object... args) {
 		return this.findBySql(sql, args, null, clz, hasEntity);
 	}
 
 
-	public <N extends Object>Pager<N> findBySql(String sql, Object arg, Class<?> clz,
-			boolean hasEntity) {
-		return this.findBySql(sql, new Object[]{arg}, clz, hasEntity);
-	}
 
-
-	public <N extends Object>Pager<N> findBySql(String sql, Class<?> clz, boolean hasEntity) {
-		return this.findBySql(sql, null, clz, hasEntity);
-	}
-
-
-	public <N extends Object>Pager<N> findBySql(String sql, Object[] args,
-			Map<String, Object> alias, Class<?> clz, boolean hasEntity) {
+	public <N extends Object>Pager<N> findBySql(String sql, Object[] args,Map<String, Object> alias, Class<?> clz, boolean hasEntity) {
 		sql = initSort(sql);
 		String cq = getCountHql(sql,false);
 		SQLQuery sq = getSession().createSQLQuery(sql);
@@ -334,16 +300,7 @@ public class BaseDao<FK extends Serializable,T> implements IBaseDao<FK,T> {
 		return this.findBySql(sql, null, alias, clz, hasEntity);
 	}
 
-	public Object queryObject(String hql, Object[] args,
-			Map<String, Object> alias) {
-		Query query = getSession().createQuery(hql);
-		setAliasParameter(query, alias);
-		setParameter(query, args);
-		return query.uniqueResult();
-	}
 
-	public Object queryObjectByAlias(String hql, Map<String, Object> alias) {
-		return this.queryObject(hql,null,alias);
-	}
+
 
 }

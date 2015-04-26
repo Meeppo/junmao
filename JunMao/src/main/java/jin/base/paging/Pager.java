@@ -14,7 +14,7 @@ public class Pager<T> {
 	 */
 	private int size;
 	/**
-	 * 分页的起始页
+	 * 分页的起始位置
 	 */
 	private int offset;
 	/**

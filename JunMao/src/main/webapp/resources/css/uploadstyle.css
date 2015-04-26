@@ -1,0 +1,221 @@
+#fileupload{
+		
+	}
+	.fileinput-button {
+	  position: relative;
+	  overflow: hidden;
+	}
+	.fileinput-button input {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  margin: 0;
+	  opacity: 50;
+	  -ms-filter: 'alpha(opacity=0)';
+	  font-size: 200px;
+	  direction: ltr;
+	  cursor: pointer;
+	  display:block;
+
+	}
+	
+	/* Fixes for IE < 8 */
+	@media screen\9 {
+	  .fileinput-button input {
+		filter: alpha(opacity=0);
+		font-size: 100%;
+		height: 100%;
+	  }
+	}
+	.yunfile-toolbar{
+		height:45px;
+		padding:5px 30px;
+		border:1px solid #ccc;
+		background-color:#F7F7F7;
+	}
+	.yunfile-toolbar .browser-type a{
+		display:block;
+		float:left;
+		width:30px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		border:solid 1px #CCCCCC;
+		cursor:pointer;
+	}
+	.browser-type a.active{
+		background:#ddd;
+	}
+	.yunfile-crumbs{
+		padding:5px 10px;	
+		font-size:12px;
+	}
+	
+	.yunfile-view{
+		min-height: 300px;
+		overflow: auto;
+	}
+	
+	.yunfile-list-toolbar{
+		padding:3px;
+		height:38px;
+	}
+	.yunfile-list-toolbar ul{
+		margin:0 0 0 10px;
+		padding:0;
+		list-style:none;
+	}
+	.yunfile-list-toolbar ul li{
+		display:inline-block;
+		line-height:30px;
+	}
+
+	.yunfile-list-toolbar ul .selected{
+		display:none;
+	}
+	.yunfile-content{
+		overflow: auto;
+		max-height: 720px;
+	}
+	.yunfile-content .well{
+		margin-bottom:0px !important;
+	}
+	.yunfile-item{
+		padding-left:9px;
+		line-height:40px;
+	}
+	.item-rename-bar{
+		display: inline-block; 
+		line-height: 20px;
+	}
+	.item-rename-bar .bar{
+		margin-left:5px;
+	}
+	.item-rename-bar a{
+		cursor: pointer;
+	}
+	#yunfile-list-view .yunfile-item{
+		height:40px;
+		border-bottom:1px solid #ddd;
+	}
+	#yunfile-list-view .yunfile-item .dropdown-menu{
+		margin:0;
+	}
+	#yunfile-list-view .yunfile-item.active{
+		background-color: #f0f8fd;
+	}
+	#yunfile-list-view .item-td{
+		display:inline-block;
+	}
+	#yunfile-list-view .yunfile-item .item-bar{
+		line-height:40px;
+		font-size:15px;
+		display:none;
+	} 
+	#yunfile-list-view .yunfile-item .item-bar div{
+		display: inline-block;
+		margin:0 5px;
+	}
+	.yunfile-checkbox{
+		display:inline-block;
+		border:1px solid #888;
+		width:15px;
+		height:15px;
+		position:relative;
+		top:3px;
+		background-color:#fff;
+	}
+	.yunfile-checkbox.checked{
+		background:url(/JunMao/resources/back/images/checked.png) no-repeat;
+	}
+	.checkbox-area{
+		width:40px;
+		display:inline-block;
+	}
+	
+	#yunfile-thumbnail .yunfile-list-content{
+		padding-left:15px;
+	}
+	#yunfile-thumbnail .yunfile-item{
+		float:left;
+		padding:10px;
+		position:relative;
+		
+		-webkit-transition:all .3s ease-in;
+		-moz-transition:all .3s ease-in;
+		-o-transition:all .3s ease-in;
+		transition:all .3s ease-in;
+	}
+	#yunfile-thumbnail .yunfile-item .item-img{
+		width:200px;
+		height:200px;
+		overflow:hidden;
+	}
+	#yunfile-thumbnail .yunfile-item img{
+		max-height:200px;
+		max-width:200px;
+	}
+	#yunfile-thumbnail .yunfile-item:hover{
+		z-index:9999;
+		transform:scale(1.2,1.2);
+		-ms-transform:scale(1.2,1.2); /* IE 9 */
+		-webkit-transform:scale(1.2,1.2); /* Safari and Chrome */
+
+	}
+	#yunfile-thumbnail .yunfile-item .checkbox-area{
+		position:absolute;
+		top:1px;
+	}
+	
+	#yunfile-thumbnail .yunfile-item .img-bar{
+		display:none;
+		color:#fff;
+		height:30px;
+		width:200px;
+		position:absolute;
+		bottom:10px;
+		background-color:#333;
+		opacity:0.8;
+		-ms-filter: 'alpha(opacity=80)';
+		filter:alpha(opacity=80);
+		padding:5px 50px;
+	}
+	#yunfile-thumbnail .yunfile-item .img-bar span{
+		float:left;
+		display:inline-block;
+		width:40px;
+		margin:0 5px;
+		background-color:#00b7ee;
+		text-align:center;
+		line-height:20px;
+	}
+	#yunfile-thumbnail .yunfile-item .img-bar span:hover{
+		background-color:#0099ee;
+		cursor:pointer;
+	}
+	#uploadPanel{
+		width:635px;
+		position:absolute;
+		top:auto;
+		left:auto;
+		right:30px;
+		bottom:0px;
+		margin-bottom:0px;
+	}
+	#uploadPanelBody{
+		height:400px;
+		overflow-y: auto;
+	}
+	#uploadPanelBody .list-group-item{
+		padding:5px 15px;
+		line-height: 30px;
+		height:43px;
+	}
+	#uploadPanelBody .list-group-item .progress{
+		margin-bottom: 0px;
+		position: relative;
+		top:5px;
+	}
+	#uploadPanelBody .list-group-item .btn{
+		margin-left:5px;
+	}

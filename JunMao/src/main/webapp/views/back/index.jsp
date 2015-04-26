@@ -11,26 +11,15 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link rel="stylesheet" type="text/css"
-	href="../../resources/back/lib/bootstrap/css/bootstrap.css">
-
-<link rel="stylesheet" type="text/css"
-	href="../../resources/back/stylesheets/theme.css">
-<link rel="stylesheet"
-	href="../../resources/back/lib/font-awesome/css/font-awesome.css">
-
-<script src="../../resources/back/lib/jquery-1.7.2.min.js"
-	type="text/javascript"></script>
-
+<link rel="stylesheet" type="text/css" href="../../resources/back/lib/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../resources/back/stylesheets/theme.css">
+<link rel="stylesheet" href="../../resources/back/lib/font-awesome/css/font-awesome.css">
+<script src="../../resources/js/jquery.min.js" type="text/javascript"></script>
+<script src="../../resources/back/lib/bootstrap/js/bootstrap.js"></script>
 <!-- Demo page code -->
 
 <style type="text/css">
-#line-chart {
-	height: 300px;
-	width: 800px;
-	margin: 0px auto;
-	margin-top: 1em;
-}
+
 
 .brand {
 	font-family: georgia, serif;
@@ -44,6 +33,9 @@
 .brand .second {
 	color: #fff;
 	font-weight: bold;
+}
+.dropdown-menu a:hover{
+	background-color: #eee !important;
 }
 </style>
 
@@ -69,6 +61,30 @@
 <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
 <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
+<script>
+	function nav(url){
+		$('#content_frame').attr('src',url);
+	}
+
+	$(document).ready(function(){
+
+		//自适应高度
+		function resizeFrame(){
+			$("#content_frame").attr("height", $("#content_frame").get(0).contentWindow.document.body.scrollHeight);
+		};
+		window.setInterval(resizeFrame, 200);  
+		
+		$("#dashboard-menu li.center-frame a").click(function(e){
+
+			e.preventDefault();
+			nav($(this).attr("href"));
+			
+			
+		});
+			
+		
+	});
+</script>
 <body class="">
 	<!--<![endif]-->
 
@@ -76,109 +92,56 @@
 		<div class="navbar-inner">
 			<ul class="nav pull-right">
 
-				<li><a href="#"class="hidden-phone visible-tablet visible-desktop" role="button">设置</a></li>
 				<li id="fat-menu" class="dropdown">
 					<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> 
 						<i class="icon-user"></i> ${admin.name } <i class="icon-caret-down"></i>
 					</a>
 
 					<ul class="dropdown-menu">
-						<li><a tabindex="-1" href="#">重新登录</a></li>
 						<li class="divider"></li>
-						<li><a tabindex="-1" class="visible-phone" href="#">设置</a></li>
+						<li><a tabindex="-1"  href="javascript:nav('${root }/admin/back/update/${admin.id}')">账户设置</a></li>
 						<li class="divider visible-phone"></li>
-						<li><a tabindex="-1" href="sign-in.html">注销</a></li>
+						<li><a tabindex="-1" href="${root }/sign/back/out">注销</a></li>
 					</ul>
 				</li>
 
 			</ul>
-			<a class="brand" href="index.html"><span class="first">骏茂</span>
+			<a class="brand" href="${root }/nav/back/index"><span class="first">骏茂</span>
 				<span class="second">钣金</span></a>
 		</div>
 	</div>
 
 
-
-
-	<div class="sidebar-nav">
+	<div class="sidebar-nav" role="navigation">
 		<a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i
 			class="icon-dashboard"></i>Dashboard</a>
 		<ul id="dashboard-menu" class="nav nav-list collapse in">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="users.html">Sample List</a></li>
-			<li><a href="user.html">Sample Item</a></li>
-			<li><a href="media.html">Media</a></li>
-			<li><a href="calendar.html">Calendar</a></li>
-
+			<li><a href="${root }/nav/index">首页</a></li>
+			<%-- <li class="center-frame"><a href="${root }/concat/back/list">客户邮件</a></li>
+			<li class="center-frame"><a href="${root }/admin/back/list">用户管理</a></li>
+			<li class="center-frame"><a href="${root }/product/back/list">产品管理</a></li>
+			<li class="center-frame"><a href="${root }/yun/toyun">资源管理</a></li> --%>
 		</ul>
 
-		<a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i
-			class="icon-briefcase"></i>Account<span class="label label-info">+3</span></a>
-		<ul id="accounts-menu" class="nav nav-list collapse">
-			<li><a href="sign-in.html">Sign In</a></li>
-			<li><a href="sign-up.html">Sign Up</a></li>
-			<li><a href="reset-password.html">Reset Password</a></li>
-		</ul>
-
-		<a href="#error-menu" class="nav-header collapsed"
-			data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error
-			Pages <i class="icon-chevron-up"></i></a>
-		<ul id="error-menu" class="nav nav-list collapse">
-			<li><a href="403.html">403 page</a></li>
-			<li><a href="404.html">404 page</a></li>
-			<li><a href="500.html">500 page</a></li>
-			<li><a href="503.html">503 page</a></li>
-		</ul>
-
-		<a href="#legal-menu" class="nav-header" data-toggle="collapse"><i
-			class="icon-legal"></i>Legal</a>
-		<ul id="legal-menu" class="nav nav-list collapse">
-			<li><a href="privacy-policy.html">Privacy Policy</a></li>
-			<li><a href="terms-and-conditions.html">Terms and
-					Conditions</a></li>
-		</ul>
-
-		<a href="help.html" class="nav-header"><i
-			class="icon-question-sign"></i>Help</a> <a href="faq.html"
-			class="nav-header"><i class="icon-comment"></i>Faq</a>
 	</div>
-
-
-
+			
+	<!-- center content -->
 	<div class="content">
-
-		<div class="header">
-			<div class="stats">
-				<p class="stat">
-					<span class="number">53</span>tickets
-				</p>
-				<p class="stat">
-					<span class="number">27</span>tasks
-				</p>
-				<p class="stat">
-					<span class="number">15</span>waiting
-				</p>
-			</div>
-
-			<h1 class="page-title">Dashboard</h1>
-		</div>
-
-		<ul class="breadcrumb">
-			<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-			<li class="active">Dashboard</li>
-		</ul>
-		<div class="container-fluid">
-			<div class="row-fluid">
-			<!-- center content -->
-				<iframe width="100%" height="100%" scrolling="no" frameborder="0" src="${back_content }"
-				onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>
-			</div>
-		</div>
-
-
-
+	   <div class="header">
+	       <h1 class="page-title">产品编辑</h1>
+	   </div>
+	   
+	   <ul class="breadcrumb">
+	       <li><a href="${root }/nav/index">首页</a><span class="divider">/</span></li>
+	       <li><a href="" class="crumb-list"></a><span class="divider">/</span></li>
+	       <li class="active crumb-self"></li>
+	   </ul>
+	   <!-- content frame -->
+	  
+		<iframe  id="content_frame" width="100%"  scrolling="no" frameborder="0" src="${back_content }"
+		onload="this.height=this.contentWindow.document.body.scrollHeight"></iframe>
+		
 		<footer>
-			<hr>
 			<p class="pull-right">
 				Collect from <a href="http://www.cssmoban.com/" title="网页模板"
 					target="_blank">网页模板</a>
@@ -188,21 +151,58 @@
 				&copy; 2012 <a href="#" target="_blank">Portnine</a>
 			</p>
 		</footer>
-
 	</div>
-	</div>
-	</div>
-
-
-
-	<script src="../../resources/back/lib/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script>
-
+	
+<script>
+<%-- <li class="center-frame"><a href="${root }/concat/back/list">客户邮件</a></li>
+<li class="center-frame"><a href="${root }/admin/back/list">用户管理</a></li>
+<li class="center-frame"><a href="${root }/product/back/list">产品管理</a></li>
+<li class="center-frame"><a href="${root }/yun/toyun">资源管理</a></li> --%>
+	var menu = [
+		{
+			url:"${root }/concat/back/list",
+			title:"客户邮件",
+			listUrl:"${root }/concat/back/list",
+			listTitle:"客户邮件"
+		},
+		{
+			url:"${root }/admin/back/list",
+			title:"用户管理",
+			listUrl:"${root }/admin/back/list",
+			listTitle:"用户管理"
+		},
+		{
+			url:"${root }/product/back/list",
+			title:"产品管理",
+			listUrl:"${root }/product/back/list",
+			listTitle:"产品管理"
+		},
+		{
+			url:"${root }/yun/toyun",
+			title:"资源管理"
+		},{
+			url:"${root }/sysinfo/back/edit",
+			title:"系统信息"
+		}
+	];
+	$.each(menu,function(index,element){
+		var li = $('<li class="center-frame"><a>'+ element.title +'</a></li>');
+		li.click(function(){
+			$(".content .page-title").text(element.title);
+			if(element.listTitle == undefined){
+				$(".content .crumb-list").parent().css("display","none");	
+			}else{
+				$(".content .crumb-list").parent().css("display","inline-block");	
+				$(".content .crumb-list").text(element.listTitle).attr("href",element.listUrl);
+			}
+			
+			$(".content .crumb-self").text(element.title);
+			$("#content_frame").attr("src",element.url);
+		});
+		$("#dashboard-menu").append(li);
+	})
+	$("#dashboard-menu li:eq(1)").click();
+</script>
 </body>
 </html>
 
